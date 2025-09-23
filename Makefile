@@ -1,4 +1,4 @@
-export THEOS=/Users/dothanh1110/theos
+export THEOS=/home/codespace/theos
 ARCHS = arm64 
 
 DEBUG = 0
