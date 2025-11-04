@@ -1,0 +1,44 @@
+#import "blockurl.h"
+#import "hosturl.h"
+
+
+@implementation NSObject (URL)
+
+bool isHostcbeios; // biến toàn cục
+
++ (void)load
+{
+    if (isHostcbeios)
+    {
+    [NSURLProtocol registerClass:[EtcHostsURLProtocol class]];
+    [EtcHostsURLProtocol configureHostsWithBlock:^(id <EtcHostsConfiguration> configuration) {
+        NSArray *blockedHosts = @[
+            @"zygame.click",
+            @"control-out.mna.qq.com",
+            @"sg.voice.gloudcs.com",
+            @"cdn.hw.gloudcs.com",
+            @"aoshw.gloudsdk.com",
+            @"f.gxx.garenanow.com",
+            @"itop.kg.garena.vn",
+            @"oth.eve.mdt.qq.com",
+            @"sg.tdatamaster.com",
+            @"kg.midas.garena.vn",
+            @"snowflake.qq.com",
+            @"connect.garenanow.com",
+            @"dd.garena.com",
+            @"dir.4.194505797.kgvn.gcloudsdk.com",
+            @"fonts.gstatic.com",
+            @"asia.csvoversea.mbgame.anticheatexpert.com",
+            @"puffer.6.1945051797.kgvn.gcloud.garena.vn",
+            @"bugly-aos.cros.garena.com",
+            @"dl.listdl.com"
+        ];
+
+        for (NSString *host in blockedHosts) {
+            [configuration resolveHostName:host toIPAddress:@"127.0.0.1"];
+        }
+    }];
+}
+}
+
+@end
