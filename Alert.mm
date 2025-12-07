@@ -13,7 +13,7 @@
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.35];
 
         // Glass box
-        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterialLight];
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *box = [[UIVisualEffectView alloc] initWithEffect:blur];
         box.frame = CGRectMake(40, 200, self.frame.size.width - 80, 230);
         box.layer.cornerRadius = 25;
@@ -104,7 +104,7 @@
     UIWindow *key = UIApplication.sharedApplication.keyWindow;
 
     // Blur background
-    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemUltraThinMaterialDark];
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *toast = [[UIVisualEffectView alloc] initWithEffect:blur];
     toast.layer.cornerRadius = 20;
     toast.layer.masksToBounds = YES;
@@ -118,7 +118,8 @@
     toast.layer.shadowOffset = CGSizeZero;
 
     // Icon
-    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage systemImageNamed:@"checkmark.circle.fill"]];
+    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check_icon"]];
+icon.tintColor = UIColor.greenColor;
     icon.tintColor = UIColor.systemGreenColor;
     icon.frame = CGRectMake(15, 15, 28, 28);
     [toast.contentView addSubview:icon];
